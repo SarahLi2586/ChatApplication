@@ -12,3 +12,6 @@ class Message {
     }
 
 }
+
+
+//a data class that represents a chat message with attributes: message content and sender's UID.

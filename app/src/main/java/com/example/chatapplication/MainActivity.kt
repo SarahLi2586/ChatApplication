@@ -16,9 +16,9 @@ import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var userRecyclerView: RecyclerView
+    private lateinit var userRecyclerView: RecyclerView //diplay the list of users
     private lateinit var userList: ArrayList<User>
-    private lateinit var adapter: UserAdapter
+    private lateinit var adapter: UserAdapter //bind the data to RecyclerView
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
                     val currentUser = postSnapshot.getValue(User::class.java)
 
-                    if(mAuth.currentUser?.uid != currentUser?.uid){ //userlist里去除掉login用户的name
+                    if(mAuth.currentUser?.uid != currentUser?.uid){ //add each user to the userlist except for the currently logged-in user
                         userList.add(currentUser!!)
                     }
                 }

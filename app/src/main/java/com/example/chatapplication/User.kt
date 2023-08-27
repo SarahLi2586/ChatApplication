@@ -14,3 +14,6 @@ class User {
     }
 
 }
+
+
+//a data class that represents a user with attributes: name, email, and UID

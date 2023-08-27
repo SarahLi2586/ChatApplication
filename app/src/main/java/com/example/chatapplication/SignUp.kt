@@ -44,11 +44,11 @@ class SignUp : AppCompatActivity() {
 
     private fun signUp(name: String, email: String, password: String){
         //logic of creating users
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password) //create a new user account with the provided email and password
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     //code for jumping to home
-                    addUserToDatabase(name, email, mAuth.currentUser?.uid!!)
+                    addUserToDatabase(name, email, mAuth.currentUser?.uid!!) //user info is added to database,navigated to main activity
                     val intent = Intent(this@SignUp, MainActivity::class.java)
                     finish()
                     startActivity(intent)

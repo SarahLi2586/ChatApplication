@@ -15,7 +15,7 @@ class Login : AppCompatActivity() {
     private lateinit var editPassword: EditText
     private lateinit var buttonLogin: Button
     private lateinit var buttonSignUp: Button
-    private lateinit var mAuth: FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth //authentication
 
 
 
@@ -33,7 +33,7 @@ class Login : AppCompatActivity() {
         buttonLogin = findViewById(R.id.buttonLogin)
         buttonSignUp = findViewById(R.id.buttonSignUp)
 
-        buttonSignUp.setOnClickListener {
+        buttonSignUp.setOnClickListener { //when clicked, it navigates the user to signup activity
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
@@ -49,12 +49,12 @@ class Login : AppCompatActivity() {
     private fun login(email: String, password: String){
         //login user login users
 
-        mAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
+        mAuth.signInWithEmailAndPassword(email, password) //authentication
+            .addOnCompleteListener(this) { task -> //handle the result of authentication attempt
                 if (task.isSuccessful) {
                     //for login user
 
-                    val intent = Intent(this@Login, MainActivity::class.java)
+                    val intent = Intent(this@Login, MainActivity::class.java) //if successful, redirected to main activity
                     finish()
                     startActivity(intent)
 

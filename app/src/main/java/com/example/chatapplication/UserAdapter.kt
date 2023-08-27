@@ -28,7 +28,7 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
 
         holder.textname.text = currentUser.name
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener{ //when a user item is clicked, navigates to chat activity
             val intent = Intent(context, ChatActivity::class.java)
 
             intent.putExtra("name", currentUser.name)
